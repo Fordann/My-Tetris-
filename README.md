@@ -15,6 +15,7 @@ It teaches me some basic knowledge :
 - boost : bomb to destroy blocks, slow pieces etc
 
 ##How to play 
+
 #Install dependencies with :
 
 pip3 install -e . 
