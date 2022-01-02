@@ -7,5 +7,5 @@ setup(name='Tetris',
       author='Flying Circus',
       author_email='flyingcircus@example.com',
       license='MIT',
-      packages=['Tetris'],
+      packages=['pygame'],
       zip_safe=False)
