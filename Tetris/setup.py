@@ -2,10 +2,9 @@ from setuptools import setup
 
 setup(name='Tetris',
       version='0.1',
-      description='The funniest joke in the world',
-      url='http://github.com/storborg/funniest',
-      author='Flying Circus',
-      author_email='flyingcircus@example.com',
-      license='MIT',
-      packages=['pygame'],
+      description='My first tetris',
+      url='https://github.com/Fordann/My-Tetris-',
+      author='Nieuviarts Thibault',
+      author_email='thibault.nieuviarts@gmail.com',
+      install_requires=['pygame'],
       zip_safe=False)

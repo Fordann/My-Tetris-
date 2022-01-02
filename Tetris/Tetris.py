@@ -4,6 +4,7 @@ from pygame.locals import *
 import random
 import piece
 
+
 pygame.init()
 ecran = pygame.display.set_mode((1,1))          
 pygame.time.set_timer(USEREVENT+1, 200)
@@ -16,27 +17,26 @@ class Piece:
         self.rotation = 0
         self.choisir_piece()
 
+
     def choisir_piece(self):
         LISTE_PIECES = ['L','T','carre','droit']
         self.nom = random.choice(LISTE_PIECES)
         self.forme =int("".join(str(x) for x in (piece.ensemble_piece[self.nom]['0'])),2)
+
 
     def tourner_piece(self):
         if self.nom != 'carre':
             if self.rotation == 3:
                 self.rotation = -1
 
-            if self.rotation !=3:
-               # if terrain.detection_colision('piece_tourné') == False:
+            else:
                 self.forme =int("".join(str(x) for x in (piece.ensemble_piece[self.nom][str(self.rotation+1)])),2)
                 if self.deplacement == 0:
                     pass
-
                 else:
                     self.forme =int(self.forme/2**abs(self.deplacement))
             self.rotation +=1
 
-                
 
 
 class Terrain:
@@ -76,10 +76,6 @@ class Terrain:
             self.limite = int("".join(str(x) for x in (piece.ensemble_piece['Terrain']['1'])),2)
             return bool(self.to_binaire() & self.limite)
 
-        #if endroit_a_tester == 'piece_tourné':
-         #   return bool(self.to_binaire() & int(int("".join(str(x) for x in (piece.ensemble_piece[self.piece_en_cours.nom][str(self.piece_en_cours.rotation+1)])),2)/2**self.piece_en_cours.deplacement))
-            
-
 
     def gravite_bloc(self):
         if self.detection_colision('limite') == True:
@@ -96,18 +92,22 @@ class Terrain:
                 self.piece_en_cours.choisir_piece()
                 self.piece_en_cours.deplacement = 0
                 affichage()
-        
+
+
     def bouger_droite(self):
         if self.detection_colision('droite') == False:
             self.piece_en_cours.forme= self.deplacer_une_case_droite()
             self.piece_en_cours.deplacement +=1 
             affichage()
 
+
     def bouger_gauche(self):
         if self.detection_colision('gauche') == False:
             self.piece_en_cours.forme= self.deplacer_une_case_gauche()
             self.piece_en_cours.deplacement -=1    
             affichage()
+
+
 def affichage():
     for index, nombre in enumerate(terrain.terrain_et_piece):
         if index % 10 == 0 and index > 0:   
@@ -144,4 +144,4 @@ while True:
             if event.key == pygame.K_UP:
                 terrain.piece_en_cours.tourner_piece()
                 
-   # time.sleep(0.1) je dois utiliser b
+ 
