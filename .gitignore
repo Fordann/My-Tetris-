@@ -1,2 +1,1 @@
-# ignore all eggs
-*/Tetris.egg-info/*
+__pycache__/
